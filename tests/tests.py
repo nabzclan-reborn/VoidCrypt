@@ -73,7 +73,7 @@ class TestEntityDetection:
         assert "4111 1111 1111 1111" not in sanitized
 
     def test_github_token(self):
-        text = "Token: ghp_faketoken1234567890abcdef"
+        text = "ghp_faketokenabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890"
         sanitized, redactions = self.engine.scan_and_replace(text)
         assert any(r["type"] == "GITHUB_TOKEN" for r in redactions)
 
@@ -126,7 +126,7 @@ class TestMinimalLevel:
         self.engine = EntityEngine(self.vault, level="minimal", use_encryption=True)
 
     def test_only_credentials_blocked(self):
-        text = "Key: ghp_faketoken1234567890abcdef"
+        text = "ghp_faketokenabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890"
         sanitized, redactions = self.engine.scan_and_replace(text)
         assert any(r["type"] == "GITHUB_TOKEN" for r in redactions)
 
