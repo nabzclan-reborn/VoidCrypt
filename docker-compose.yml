@@ -1,0 +1,17 @@
+services:
+  voidcrypt:
+    build: .
+    ports:
+      - "${VOIDCRYPT_PORT:-8400}:8400"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - PROVIDER_API_KEY=${PROVIDER_API_KEY}
+      - VOIDCRYPT_KEY=${VOIDCRYPT_KEY}
+      - VOIDCRYPT_PORT=8400
+      - VOIDCRYPT_LEVEL=${VOIDCRYPT_LEVEL:-smart}
+      - UPSTREAM_PROVIDER_ENDPOINT=${UPSTREAM_PROVIDER_ENDPOINT:-https://lumyx-ai.site/api}
+      - VOIDCRYPT_TOR_PROXY=${VOIDCRYPT_TOR_PROXY}
+      - VOIDCRYPT_ANONYMOUS=${VOIDCRYPT_ANONYMOUS:-false}
+      - VOIDCRYPT_OBFUSCATE=${VOIDCRYPT_OBFUSCATE:-false}
+    restart: unless-stopped

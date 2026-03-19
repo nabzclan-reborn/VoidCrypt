@@ -1,0 +1,24 @@
+# Environment
+.env
+*.enc
+audit.log
+.voidcrypt_nabzclan_vault/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+.dockerignore
